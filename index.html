@@ -10,6 +10,15 @@
     <link rel="manifest" href="manifest.json">
 
     <script>
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', function(){
+                navigator.serviceWorker.register('pwabuilder-sw.js').then(function(registration){
+                    console.log('Servicer Worker registrado com sucesso, com escopo: ', registration.scope)
+                }, function(err){
+                    console.log('Erro ao registrar o Service Worker: ', err)
+                })
+            })
+        }
         // This is the "Offline page" service worker
 
         // Add this below content to your HTML page inside a <script type="module"></script> tag, or add the js file to your page at the very top to register service worker

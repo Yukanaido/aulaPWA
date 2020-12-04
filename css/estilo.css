@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.3rem;
+    color: black;
+}
+@media (max-width: 575.98px) {  
+    body {
+        font-size: 0.8rem;
+    }
+    h1, .h1 {
+        font-size: 1.5rem;
+    }
+      
+    h2, .h2 {
+        font-size: 1.25rem;
+      }
+      
+    h3, .h3 {
+        font-size: 1rem;
+      }
+
+    .display-4 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        line-height: 1rem;
+    }
+}
+
+
+.text-header {
+    font-family: 'PT Sans', sans-serif;
+
+}
+
+
+.bg-navbar {
+    background: #ffe6e6;
+}
+.bg-header {
+    background: #fdd5d5;
+}
+
+
+.mt-n5 {
+    margin-top: -3rem !important;
+  }
+
+  

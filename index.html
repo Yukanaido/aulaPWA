@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoffeeTime</title>
+    <link rel="shortcut icon" href="icon/icon-48x48.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="manifest" href="manifest.json">
+
+    <script>
+        // This is the "Offline page" service worker
+
+        // Add this below content to your HTML page inside a <script type="module"></script> tag, or add the js file to your page at the very top to register service worker
+        // If you get an error about not being able to import, double check that you have type="module" on your <script /> tag
+
+        /*
+        This code uses the pwa-update web component https://github.com/pwa-builder/pwa-update to register your service worker,
+        tell the user when there is an update available and let the user know when your PWA is ready to use offline.
+        */
+
+        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+        const el = document.createElement('pwa-update');
+        document.body.appendChild(el);
+    </script>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid bg-header">
+        <h1 class="display-4 text-center text-header">CoffeeTime - コーヒータイム</h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar mt-n5">
+        <a href="index.html" class="navbar-brand">
+            <img src="icon/coffee.svg" alt="logo" width="40" height="40">
+        </a>
+        <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" aria-controls="menu" aria-expanded="false" aria-label="Menu do site">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="menu" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="entertainment" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="entertainment">
+                      <a class="dropdown-item" href="#">Playstation</a>
+                      <a class="dropdown-item" href="#">Xbox</a>
+                      <a class="dropdown-item" href="#">Nintendo</a>
+                      <a class="dropdown-item" href="#">PC</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Animes e Mangás</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Filmes e Séries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">HQs e Livros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Ciência e Tecnologia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Podcasts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Músicas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-left text-primary">Destaques</h1>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6">
+                <h2 class="text-dark text-justify">Genshin Impact é eleito melhor jogo mobile de 2020</h1>
+                <p class="text-justify text-dark">Genshin Impact foi eleito o melhor jogo mobile de 2020, premiado tanto pela Apple (via App Store) quanto pela Google Play.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6">
+                <img src="img/Genshin Impact.jpg" class="img-fluid" alt="Genshin Imapact mobile">
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6">
+                <img src="img/Resident Evil Infinite Darkness.jpg" class="img-fluid" alt="Resident Evil: Infinite Darkness - Netflix.jpg">
+            </div>
+            <div class="col-12 col-sm-6 col-md-6">
+                <h2 class="text-dark text-justify">Netflix anuncia seria animada baseada em Resident Evil</h1>
+                <p class="text-justify text-dark">Resident Evil: Infinite Darkness, produção anunciada durante o final de semana, é uma série em CGI que será lançada na Netflix em 2021.</p>
+            </div>
+            
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-left text-primary">Notícias</h1>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-3 col-md-3">
+                <img class="img-fluid" src="img/Spotify.jpg" alt="Spotify - Retrospectiva 2020">
+            </div>
+            <div class="col-12 col-sm-9 col-md-9">
+                <h3 class="text-justify text-dark">Spotify libera lista de músicas e artistas que você mais ouviu em 2020; saiba como fazer a sua!
+                </h3>
+                <p class="text-justify text-dark">Neste ano, a ferramenta funciona apenas através do aplicativo do Spotify, reproduzindo o estilo dos “Stories”, do Instagram. Os dados da retrospectiva são expostos aos poucos, no formato vertical, enquanto as músicas mais ouvidas são reproduzidas ao fundo.</p>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-3 col-md-3">
+                <img class="img-fluid" src="img/Cyberpunk 2077.jpg" alt="Cyberpunk 2077">
+            </div>
+            <div class="col-12 col-sm-9 col-md-9">
+                <h3 class="text-justify text-dark">Cyberpunk 2077 estará disponível a partir da noite de 9 de dezembro no Brasil</h3>
+                <p class="text-justify text-dark">Cyberpunk 2077 só vai ser lançado oficialmente no dia 10 de dezembro, mas quem comprou a versão digital de PC pode aproveitar o game algumas horinhas antes.
+
+                </p>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-3 col-md-3">
+                <img class="img-fluid" src="img/RTX.jpg" alt="RTX 30">
+            </div>
+            <div class="col-12 col-sm-9 col-md-9">
+                <h3 class="text-justify text-dark">Placa de vídeo Galax: confira as versões da marca para as novas RTX 30</h3>
+                <p class="text-justify text-dark"> Nvidia tem na Galax como uma das parceiras para lançar suas placas de vídeo. Com as novas GeForce RTX 3070, RTX 3080 e RTX 3090 de arquitetura Ampère, a fabricante oferece diferentes versões no mercado, variando quanto ao design e a alguns recursos. Por conta da alta demanda, as placas são difíceis de encontrar no mercado: nas nossas buscas, apenas a RTX 3090 SG se encontra disponível no Brasil.
+                </p>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-3 col-md-3">
+                <img class="img-fluid" src="img/Terra Média.png" alt="J.R.R. Tolkien: Terra Média">
+            </div>
+            <div class="col-12 col-sm-9 col-md-9">
+                <h3 class="text-justify text-dark">Livro inédito de J.R.R. Tolkien sobre a Terra-Média será lançado em 2021</h3>
+                <p class="text-justify text-dark">O espólio de J.R.R. Tolkien autorizou a publicação de um livro inédito sobre o universo de O Senhor dos Anéis, intitulado The Nature of Middle-Earth, algo como “A Natureza da Terra-Média” em tradução livre para o português.</p>
+            </div>
+        </div>  
+        <div class="dropdown-divider"></div>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-left text-primary">Músicas</h1>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-3 col-md-3">
+                <img class="img-fluid" src="img/Afterlife.jpg" alt="Afterlife by EMM + Besomorph on NCS">
+                
+            </div>
+            <div class="col-12 col-sm-9 col-md-9">
+                <h3 class="text-justify text-dark">Besomorph & EMM - Afterlife [NCS Release]</h3>
+                <audio controls>
+                <source src="audio/Besomorph & EMM - Afterlife [NCS Release].mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-header mt-3">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center text-dark">© Copyright 2020-2020 Copyright.com.br - All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
